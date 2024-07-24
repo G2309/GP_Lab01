@@ -24,11 +24,24 @@ fn main() {
         [230, 360], [250, 380], [220, 385], [205, 410], [193, 383]
     ];
 
+    // Polígono 2
+    let polygon2 = vec![
+        [321, 335], [288, 286], [339, 251], [374, 302]
+    ];
+
     // Dibujar polígono 1
     framebuffer.set_current_color(yellow);
     framebuffer.draw_filled_polygon(polygon1.clone());
     framebuffer.set_current_color(white);
     framebuffer.polygon(polygon1.clone());
+
+    #[cfg(feature = "polygon-2")] {
+        // Dibujar polígono 2
+        framebuffer.set_current_color(blue);
+        framebuffer.draw_filled_polygon(polygon2.clone());
+        framebuffer.set_current_color(white);
+        framebuffer.polygon(polygon2.clone());
+    }
      
         
     framebuffer.write_to_bmp("out.bmp").unwrap();
