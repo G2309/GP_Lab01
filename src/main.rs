@@ -29,11 +29,20 @@ fn main() {
         [321, 335], [288, 286], [339, 251], [374, 302]
     ];
 
+    // Polígono 3
+    let polygon3 = vec![
+        [377, 249], [411, 197], [436, 249]
+    ];
+
     // Dibujar polígono 1
     framebuffer.set_current_color(yellow);
     framebuffer.draw_filled_polygon(polygon1.clone());
     framebuffer.set_current_color(white);
     framebuffer.polygon(polygon1.clone());
+    
+    // Decidí incluir los demas poligonos como feature para que se pueda ejecutar cada poligono
+    // independientemente, al usar: cargo run --features "polygon-n" donde n es el numero que se
+    // desea ejecutar. Se pueden concatenar poligonos.
 
     #[cfg(feature = "polygon-2")] {
         // Dibujar polígono 2
@@ -41,6 +50,14 @@ fn main() {
         framebuffer.draw_filled_polygon(polygon2.clone());
         framebuffer.set_current_color(white);
         framebuffer.polygon(polygon2.clone());
+    }
+
+    #[cfg(feature = "polygon-3")] {
+        // Dibujar polígono 3
+        framebuffer.set_current_color(red);
+        framebuffer.draw_filled_polygon(polygon3.clone());
+        framebuffer.set_current_color(white);
+        framebuffer.polygon(polygon3.clone());
     }
      
         

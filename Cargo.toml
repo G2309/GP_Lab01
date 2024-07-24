@@ -6,4 +6,6 @@ edition = "2021"
 [dependencies]
 
 [features]
+default = ["polygon-2", "polygon-3"]
 polygon-2 = []
+polygon-3 = []
