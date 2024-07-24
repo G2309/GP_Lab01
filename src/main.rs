@@ -34,6 +34,18 @@ fn main() {
         [377, 249], [411, 197], [436, 249]
     ];
 
+    // Polígono 4
+    let polygon4 = vec![
+        [413, 177], [448, 159], [502, 88], [553, 53], [535, 36], [676, 37], [660, 52],
+        [750, 145], [761, 179], [672, 192], [659, 214], [615, 214], [632, 230], [580, 230],
+        [597, 215], [552, 214], [517, 144], [466, 180]
+    ];
+
+    // Polígono 5 
+    let polygon5 = vec![
+        [682, 175], [708, 120], [735, 148], [739, 170]
+    ];
+
     // Dibujar polígono 1
     framebuffer.set_current_color(yellow);
     framebuffer.draw_filled_polygon(polygon1.clone());
@@ -58,6 +70,18 @@ fn main() {
         framebuffer.draw_filled_polygon(polygon3.clone());
         framebuffer.set_current_color(white);
         framebuffer.polygon(polygon3.clone());
+    }
+
+    #[cfg(feature = "polygon-4")] {
+        // Dibujar polígono 4
+        framebuffer.set_current_color(green);
+        framebuffer.draw_filled_polygon(polygon4.clone());
+        framebuffer.set_current_color(white);
+        framebuffer.polygon(polygon4.clone());
+
+        // Dibujar agujero
+        framebuffer.set_current_color(framebuffer.background_color);
+        framebuffer.draw_filled_polygon(polygon5.clone());
     }
      
         
